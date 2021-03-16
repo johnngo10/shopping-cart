@@ -1,4 +1,5 @@
 import './App.css';
+import { Link } from 'react-router-dom';
 import showcaseImg from './img/showcase.jpg';
 import feature1 from './img/feature/feature1.jpg';
 import feature2 from './img/feature/feature2.jpg';
@@ -10,7 +11,9 @@ const App = () => {
       <div className='hero-image'>
         <div className='hero-content'>
           <h2>Discover True Power</h2>
-          <button className='shop-btn'>SHOP NOW</button>
+          <Link to='/products'>
+            <button className='shop-btn'>SHOP NOW</button>
+          </Link>
         </div>
       </div>
       <div className='showcase-1'>
@@ -25,7 +28,9 @@ const App = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
-          <button className='shop-btn'>SHOP NOW</button>
+          <Link to='/products'>
+            <button className='shop-btn'>SHOP NOW</button>
+          </Link>
         </div>
       </div>
       <div className='features'>
