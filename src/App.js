@@ -1,9 +1,9 @@
 import './App.css';
 import { Link } from 'react-router-dom';
-import showcaseImg from './img/showcase.jpg';
-import feature1 from './img/feature/feature1.jpg';
-import feature2 from './img/feature/feature2.jpg';
-import feature3 from './img/feature/feature3.jpg';
+// import showcaseImg from './img/showcase.jpg';
+// import feature1 from './img/feature/feature1.jpg';
+// import feature2 from './img/feature/feature2.jpg';
+// import feature3 from './img/feature/feature3.jpg';
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
       </div>
       <div className='showcase-1'>
         <div className='showcase-img-container'>
-          <img src={showcaseImg} />
+          <img src={process.env.PUBLIC_URL + '/img/showcase.jpg'} />
         </div>
         <div className='showcase-text'>
           <h3>Custom Crafted PC</h3>
@@ -35,7 +35,7 @@ const App = () => {
       </div>
       <div className='features'>
         <div>
-          <img src={feature1}></img>
+          <img src={process.env.PUBLIC_URL + '/img/feature/feature1.jpg'}></img>
           <h3>Made with quality parts</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -45,7 +45,7 @@ const App = () => {
           </p>
         </div>
         <div>
-          <img src={feature2}></img>
+          <img src={process.env.PUBLIC_URL + '/img/feature/feature2.jpg'}></img>
           <h3>Built with perfection</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -55,7 +55,7 @@ const App = () => {
           </p>
         </div>
         <div>
-          <img src={feature3}></img>
+          <img src={process.env.PUBLIC_URL + '/img/feature/feature3.jpg'}></img>
           <h3>Tested rigoriously and ready for use</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -68,7 +68,11 @@ const App = () => {
       <div className='newsletter'>
         <h3>Join our newsletter!</h3>
         <form>
-          <input type='text' className='news-input'></input>
+          <input
+            type='text'
+            className='news-input'
+            placeholder='Email address'
+          ></input>
           <input
             type='submit'
             className='news-submit-btn'
