@@ -9,7 +9,15 @@ const Product = props => {
         <div className='product-page-content'>
           <h3 className='product-page-title'>{product.title}</h3>
           <p className='product-page-price'>${product.price}</p>
-          <div className='product-page-quantity'>0</div>
+          <div className='product-page-quantity'>
+            <label>Quantity</label>
+            <input
+              type='number'
+              min='1'
+              defaultValue='1'
+              className='quantity'
+            ></input>
+          </div>
           <div className='product-page-button'>
             <button className='add-to-cart'>ADD TO CART</button>
             <button className='buy-now'>BUY IT NOW</button>

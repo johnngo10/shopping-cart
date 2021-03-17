@@ -34,6 +34,7 @@
   padding: 20px 80px;
   min-width: 400px;
   font-size: 18px;
+  box-shadow: 0 0 6px lightgray;
 }
 
 .nav-menus {
@@ -136,6 +137,7 @@
   flex-wrap: wrap;
   height: 20%;
   padding: 0 100px;
+  margin: 40px;
 }
 
 .features div {
@@ -318,11 +320,21 @@
 }
 
 .product-page-quantity {
-  margin-top: 20px;
+  margin-top: 40px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.quantity {
+  padding: 10px;
+  width: 40px;
 }
 
 .product-page-button {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .add-to-cart {
