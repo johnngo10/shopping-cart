@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Cart = props => {
-  const { cartItems, removeCartHandler } = props;
+  const { cartItems, removeCartHandler, qtyCartHandler } = props;
   const [products, setProducts] = useState(cartItems);
   const [subtotal, setSubtotal] = useState(0);
 
@@ -21,10 +21,19 @@ const Cart = props => {
 
   const qtyHandler = e => {
     const qty = parseInt(e.target.value);
-    setProducts({ ...products });
+    const id = e.target.parentElement.parentElement.getAttribute('id');
+    let item = [];
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].id === id) {
+        item.push(products[i]);
+      }
+    }
+
+    qtyCartHandler(id, qty, item[0].price);
+    subtotalHandler();
   };
 
-  // user can change quantity and price will be reflected on cart
+  // Adding to cart with a certain quantity will reflect price in cart
 
   return (
     <div className='cart-container'>
@@ -49,7 +58,7 @@ const Cart = props => {
             </div>
             {products.map((value, index) => {
               return (
-                <div className='cart-product' key={index}>
+                <div className='cart-product' key={index} id={value.id}>
                   <div className='cart-img-container'>
                     <Link
                       className='Link'

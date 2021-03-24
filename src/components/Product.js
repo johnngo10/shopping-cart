@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Product = props => {
   const data = props.location.product.value;
+  const { addToCartHandler } = props;
 
   const [product, setProduct] = useState({
     id: data.id,
@@ -13,11 +14,10 @@ const Product = props => {
     qty: data.qty,
   });
 
-  const { addToCartHandler } = props;
-
   const qtyHandler = e => {
     const qty = parseInt(e.target.value);
-    setProduct({ ...product, qty });
+    const totalPrice = product.price * qty;
+    setProduct({ ...product, qty, totalPrice });
   };
 
   return (

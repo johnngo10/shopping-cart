@@ -81,17 +81,17 @@ const Routes = () => {
     if (cartItems.length < 1) {
       setCartItems([...cartItems, item]);
       setCartNum(cartNum + qty);
-    } else {
+    } else if (cartItems.findIndex(x => x.id === item.id) > -1) {
+      setCartNum(cartNum + qty);
       for (let i = 0; i < cartItems.length; i++) {
         if (cartItems[i].id === item.id) {
-          setCartNum(cartNum + qty);
           cartItems[i].totalPrice += item.totalPrice;
           return (cartItems[i].qty += item.qty);
-        } else {
-          setCartNum(cartNum + qty);
-          return setCartItems([...cartItems, item]);
         }
       }
+    } else if (cartItems.findIndex(x => x.id === item.id) < 0) {
+      setCartNum(cartNum + qty);
+      setCartItems([...cartItems, item]);
     }
   };
 
@@ -99,6 +99,20 @@ const Routes = () => {
     const index = cartItems.findIndex(item => item.id === id);
     setCartNum(cartNum - qty);
     return cartItems.splice(index, 1);
+  };
+
+  const qtyCartHandler = (id, qty, price) => {
+    for (let i = 0; i < cartItems.length; i++) {
+      if (cartItems[i].id === id && cartItems[i].qty > qty) {
+        setCartNum(cartNum - 1);
+        cartItems[i].qty = qty;
+        cartItems[i].totalPrice -= price;
+      } else if (cartItems[i].id === id && cartItems[i].qty < qty) {
+        setCartNum(cartNum + 1);
+        cartItems[i].qty = qty;
+        cartItems[i].totalPrice += price;
+      }
+    }
   };
 
   return (
@@ -128,6 +142,7 @@ const Routes = () => {
               {...props}
               cartItems={cartItems}
               removeCartHandler={removeCartHandler}
+              qtyCartHandler={qtyCartHandler}
             />
           )}
         />
