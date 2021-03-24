@@ -472,3 +472,27 @@ label {
   text-align: end;
 }
 
+.total-container {
+  text-align: end;
+  width: 950px;
+  margin: 60px;
+}
+
+.total-container div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.subtotal {
+  margin-right: 20px;
+}
+
+.checkout-btn {
+  padding: 10px 15px;
+  margin-top: 40px;
+  color: white;
+  background-color: #333333;
+  border: none;
+  cursor: pointer;
+}
+

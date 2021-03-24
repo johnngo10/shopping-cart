@@ -1,5 +1,20 @@
+import React, { useState, useEffect } from 'react';
+
 const Product = props => {
-  const product = props.location.product.value;
+  const data = props.location.product.value;
+
+  const [product, setProduct] = useState({
+    id: data.id,
+    img: data.img,
+    title: data.title,
+    description: data.description,
+    price: data.price,
+    totalPrice: data.totalPrice,
+    qty: data.qty,
+  });
+
+  const { addToCartHandler } = props;
+
   return (
     <div className='product-page-container'>
       <div className='product-page-contents'>
@@ -19,7 +34,12 @@ const Product = props => {
             ></input>
           </div>
           <div className='product-page-button'>
-            <button className='add-to-cart'>ADD TO CART</button>
+            <button
+              className='add-to-cart'
+              onClick={() => addToCartHandler(product)}
+            >
+              ADD TO CART
+            </button>
             <button className='buy-now'>BUY IT NOW</button>
           </div>
           <p className='product-page-description'>{product.description}</p>
