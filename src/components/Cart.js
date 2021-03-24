@@ -2,30 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Cart = props => {
-  const { cartItem } = props;
-  const [products, setProducts] = useState(cartItem);
+  const { cartItems, removeCartHandler } = props;
+  const [products, setProducts] = useState(cartItems);
+  const [subtotal, setSubtotal] = useState(0);
 
-  // if (cartItem.id !== '' && products.length < 1) {
-  //   const arr = products.concat(cartItem);
-  //   setProducts(arr);
-  //   console.log(products.length);
-  // } else if (cartItem.id !== '' && products.length > 0) {
-  //   for (let i = 0; i < products.length; i++) {
-  //     if (products[i].id !== cartItem.id) {
-  //       const arr = products.concat(cartItem);
-  //       setProducts(arr);
-  //       console.log('concat');
-  //     } else if (products[i].id === cartItem.id) {
-  //       products[i].qty += cartItem.qty;
-  //       console.log('add qty');
-  //       console.log(products.length);
-  //     }
-  //   }
-  //   console.log('2nd');
-  //   console.log(products);
-  // } else {
-  //   console.log('error');
-  // }
+  useEffect(() => {
+    let total = 0;
+    for (let i = 0; i < products.length; i++) {
+      total += products[i].totalPrice;
+    }
+
+    setSubtotal(total.toFixed(2));
+  }, products);
+
+  // Subtotal should change when cart item is removed
+  // Pressing on cart item image takes user to product page
+  // user can change quantity and price will be reflected on cart
 
   return (
     <div className='cart-container'>
@@ -51,10 +43,17 @@ const Cart = props => {
             {products.map((value, index) => {
               return (
                 <div className='cart-product' key={index}>
-                  <img src={process.env.PUBLIC_URL + value.img} />
+                  <div className='cart-img-container'>
+                    <img src={process.env.PUBLIC_URL + value.img} />
+                  </div>
                   <div className='cart-product-title-cont'>
                     <p className='cart-product-title'>{value.title}</p>
-                    <p className='cart-product-remove'>Remove</p>
+                    <p
+                      className='cart-product-remove'
+                      onClick={() => removeCartHandler(value.id, value.qty)}
+                    >
+                      Remove
+                    </p>
                   </div>
                   <p className='cart-product-price'>${value.price}</p>
                   <div className='cart-product-quantity'>
@@ -64,7 +63,9 @@ const Cart = props => {
                       defaultValue={value.qty}
                     ></input>
                   </div>
-                  <p className='cart-product-total'>${value.totalPrice}</p>
+                  <p className='cart-product-total'>
+                    ${value.totalPrice.toFixed(2)}
+                  </p>
                 </div>
               );
             })}
@@ -72,7 +73,7 @@ const Cart = props => {
           <div className='total-container'>
             <div>
               <p className='subtotal'>Subtotal</p>
-              <p>$120.99</p>
+              <p>${subtotal}</p>
             </div>
             <button className='checkout-btn'>CHECK OUT</button>
           </div>

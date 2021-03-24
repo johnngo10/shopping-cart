@@ -8,20 +8,9 @@ import Cart from './components/Cart';
 import Footer from './components/Footer';
 import { v4 as uuidv4 } from 'uuid';
 
-// click handler is stacking on product component
-
 const Routes = () => {
   const [cartNum, setCartNum] = useState(0);
-  const [cartItem, setCartItem] = useState({
-    id: '',
-    img: '',
-    title: '',
-    description: '',
-    price: 0,
-    totalPrice: 0,
-    qty: 0,
-  });
-  const [cartArr, setCartArr] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([
     {
       id: uuidv4(),
@@ -88,33 +77,28 @@ const Routes = () => {
   const addToCartHandler = product => {
     const { id, img, title, description, price, totalPrice, qty } = product;
     const item = { id, img, title, description, price, totalPrice, qty };
-    // setCartItem({
-    //   id,
-    //   img,
-    //   title,
-    //   description,
-    //   price,
-    //   qty,
-    // });
 
-    if (cartArr.length < 1) {
-      setCartArr([...cartArr, item]);
+    if (cartItems.length < 1) {
+      setCartItems([...cartItems, item]);
       setCartNum(cartNum + qty);
-      console.log('1');
     } else {
-      for (let i = 0; i < cartArr.length; i++) {
-        if (cartArr[i].id === item.id) {
-          console.log(cartArr);
+      for (let i = 0; i < cartItems.length; i++) {
+        if (cartItems[i].id === item.id) {
           setCartNum(cartNum + qty);
-          cartArr[i].totalPrice += item.totalPrice;
-          return (cartArr[i].qty += item.qty);
+          cartItems[i].totalPrice += item.totalPrice;
+          return (cartItems[i].qty += item.qty);
         } else {
-          console.log(cartArr);
           setCartNum(cartNum + qty);
-          return setCartArr([...cartArr, item]);
+          return setCartItems([...cartItems, item]);
         }
       }
     }
+  };
+
+  const removeCartHandler = (id, qty) => {
+    const index = cartItems.findIndex(item => item.id === id);
+    setCartNum(cartNum - qty);
+    return cartItems.splice(index, 1);
   };
 
   return (
@@ -139,7 +123,13 @@ const Routes = () => {
           exact
           path='/cart'
           // component={Cart}
-          render={props => <Cart {...props} cartItem={cartArr} />}
+          render={props => (
+            <Cart
+              {...props}
+              cartItems={cartItems}
+              removeCartHandler={removeCartHandler}
+            />
+          )}
         />
       </Switch>
       <Footer />
