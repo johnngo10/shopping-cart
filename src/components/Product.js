@@ -15,6 +15,11 @@ const Product = props => {
 
   const { addToCartHandler } = props;
 
+  const qtyHandler = e => {
+    const qty = parseInt(e.target.value);
+    setProduct({ ...product, qty });
+  };
+
   return (
     <div className='product-page-container'>
       <div className='product-page-contents'>
@@ -31,6 +36,7 @@ const Product = props => {
               min='1'
               defaultValue='1'
               className='quantity'
+              onChange={qtyHandler}
             ></input>
           </div>
           <div className='product-page-button'>

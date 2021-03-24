@@ -7,16 +7,23 @@ const Cart = props => {
   const [subtotal, setSubtotal] = useState(0);
 
   useEffect(() => {
+    subtotalHandler();
+  }, products);
+
+  const subtotalHandler = () => {
     let total = 0;
     for (let i = 0; i < products.length; i++) {
       total += products[i].totalPrice;
     }
 
     setSubtotal(total.toFixed(2));
-  }, products);
+  };
 
-  // Subtotal should change when cart item is removed
-  // Pressing on cart item image takes user to product page
+  const qtyHandler = e => {
+    const qty = parseInt(e.target.value);
+    setProducts({ ...products });
+  };
+
   // user can change quantity and price will be reflected on cart
 
   return (
@@ -44,13 +51,24 @@ const Cart = props => {
               return (
                 <div className='cart-product' key={index}>
                   <div className='cart-img-container'>
-                    <img src={process.env.PUBLIC_URL + value.img} />
+                    <Link
+                      className='Link'
+                      to={{
+                        pathname: `/product/${value.id}`,
+                        product: { value },
+                      }}
+                    >
+                      <img src={process.env.PUBLIC_URL + value.img} />
+                    </Link>
                   </div>
                   <div className='cart-product-title-cont'>
                     <p className='cart-product-title'>{value.title}</p>
                     <p
                       className='cart-product-remove'
-                      onClick={() => removeCartHandler(value.id, value.qty)}
+                      onClick={() => {
+                        removeCartHandler(value.id, value.qty);
+                        subtotalHandler();
+                      }}
                     >
                       Remove
                     </p>
@@ -61,6 +79,7 @@ const Cart = props => {
                       type='number'
                       min='1'
                       defaultValue={value.qty}
+                      onChange={qtyHandler}
                     ></input>
                   </div>
                   <p className='cart-product-total'>
