@@ -106,11 +106,11 @@ const Routes = () => {
       if (cartItems[i].id === id && cartItems[i].qty > qty) {
         setCartNum(cartNum - 1);
         cartItems[i].qty = qty;
-        cartItems[i].totalPrice -= price;
+        cartItems[i].totalPrice = price * qty;
       } else if (cartItems[i].id === id && cartItems[i].qty < qty) {
         setCartNum(cartNum + 1);
         cartItems[i].qty = qty;
-        cartItems[i].totalPrice += price;
+        cartItems[i].totalPrice = price * qty;
       }
     }
   };
