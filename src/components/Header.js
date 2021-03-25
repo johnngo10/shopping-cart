@@ -17,7 +17,6 @@ const Header = props => {
         <Link to='/products' className='Link'>
           <li className='nav-items'>Products</li>
         </Link>
-        <li className='nav-items'>About</li>
       </ul>
       <div id='cart'>
         <Link to='/cart' className='Link'>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import App from './App';
@@ -18,8 +18,8 @@ const Routes = () => {
       title: 'IBUYPOWER Trace 4 9310',
       description:
         'AMD Ryzen 5 3600 3.6GHz, AMD Radeon RX 5500 XT 4GB, 8GB DDR4 RAM, 240GB SSD, Wi-Fi Ready, Windows 10 Home',
-      price: 926.99,
-      totalPrice: 926.99,
+      price: 1069.99,
+      totalPrice: 1069.99,
       qty: 1,
     },
     {
@@ -28,8 +28,8 @@ const Routes = () => {
       title: 'Skytech Archangel',
       description:
         'Ryzen 5 3600 3.6GHz, GTX 1660 Super 6G, 500GB SSD, 16GB DDR4 3000MHz, RGB Fans, Windows 10 Home 64-bit, 802.11AC Wi-Fi',
-      price: 1224.99,
-      totalPrice: 1224.99,
+      price: 1324.99,
+      totalPrice: 1324.99,
       qty: 1,
     },
     {
@@ -38,8 +38,8 @@ const Routes = () => {
       title: 'Skytech Chronos Mini',
       description:
         'AMD Ryzen 3 3100, NVIDIA GTX 1650 4GB, 8GB DDR4, 500GB SSD, A320 Motherboard, 550 Watt Bronze, AC Wi-Fi, Windows 10 Home 64-bit',
-      price: 799.99,
-      totalPrice: 799.99,
+      price: 974.99,
+      totalPrice: 974.99,
       qty: 1,
     },
     {
@@ -48,8 +48,8 @@ const Routes = () => {
       title: 'Skytech Shadow',
       description:
         'AMD Ryzen 3 3100, GTX 1660 6G, 16GB DDR4 3000, 1TB SSD, A520 Motherboard, 500W PSU, Black',
-      price: 999.99,
-      totalPrice: 999.99,
+      price: 1749.99,
+      totalPrice: 1749.99,
       qty: 1,
     },
     {
@@ -68,8 +68,8 @@ const Routes = () => {
       title: 'iBUYPOWER 1000iV2',
       description:
         'Intel i7-10700F 2.9GHz, NVIDIA GeForce RTX 2060 6GB, 16GB DDR4 RAM, 480GB SSD, 2TB HDD, WiFi Ready, Windows 10 Home',
-      price: 1839.99,
-      totalPrice: 1839.99,
+      price: 1499.99,
+      totalPrice: 1499.99,
       qty: 1,
     },
   ]);
@@ -130,13 +130,11 @@ const Routes = () => {
         <Route
           exact
           path='/products'
-          // component={Products}
           render={props => <Products {...props} productArr={products} />}
         />
         <Route
           exact
           path='/cart'
-          // component={Cart}
           render={props => (
             <Cart
               {...props}

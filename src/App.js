@@ -1,9 +1,5 @@
 import './App.css';
 import { Link } from 'react-router-dom';
-// import showcaseImg from './img/showcase.jpg';
-// import feature1 from './img/feature/feature1.jpg';
-// import feature2 from './img/feature/feature2.jpg';
-// import feature3 from './img/feature/feature3.jpg';
 
 const App = () => {
   return (
@@ -11,8 +7,9 @@ const App = () => {
       <div className='hero-image'>
         <div className='hero-content'>
           <h2>Discover True Power</h2>
+          <p>Ultimate performance for gamers and creators</p>
           <Link to='/products'>
-            <button className='shop-btn'>SHOP NOW</button>
+            <button className='shop-btn-white'>SHOP NOW</button>
           </Link>
         </div>
       </div>
