@@ -13,7 +13,10 @@ const Products = props => {
             <Link
               className='Link'
               key={index}
-              to={{ pathname: `/product/${value.id}`, product: { value } }}
+              to={{
+                pathname: `/shopping-cart/product/${value.id}`,
+                product: { value },
+              }}
             >
               <div className='product'>
                 <img src={process.env.PUBLIC_URL + value.img} />

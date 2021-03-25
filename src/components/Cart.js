@@ -37,7 +37,7 @@ const Cart = props => {
     <div className='cart-container'>
       <div className='cart-header'>
         <h1>Your Cart</h1>
-        <Link to='/products' className='Link'>
+        <Link to='/shopping-cart/products' className='Link'>
           <p>Continue Shopping</p>
         </Link>
       </div>

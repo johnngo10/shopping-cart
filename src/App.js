@@ -8,7 +8,7 @@ const App = () => {
         <div className='hero-content'>
           <h2>Discover True Power</h2>
           <p>Ultimate performance for gamers and creators</p>
-          <Link to='/products'>
+          <Link to='/shopping-cart/products'>
             <button className='shop-btn-white'>SHOP NOW</button>
           </Link>
         </div>
@@ -25,7 +25,7 @@ const App = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
-          <Link to='/products'>
+          <Link to='/shopping-cart/products'>
             <button className='shop-btn'>SHOP NOW</button>
           </Link>
         </div>
