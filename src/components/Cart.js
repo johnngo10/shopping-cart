@@ -61,7 +61,7 @@ const Cart = props => {
                     <Link
                       className='Link'
                       to={{
-                        pathname: `/product/${value.id}`,
+                        pathname: `/shopping-cart/product/${value.id}`,
                         product: { value },
                       }}
                     >
