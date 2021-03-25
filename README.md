@@ -6,7 +6,7 @@ An ecommerce shopping cart app that allow users to interact and view a collectio
 
 ## Motivation
 
-To showcase the frontend of a shopping cart using React as the framework. Utilizes components, props, state and hooks.
+To showcase the frontend of a shopping cart using React as the framework. Utilizes routers, props, state and hooks.
 
 ## Built With
 
@@ -15,4 +15,4 @@ To showcase the frontend of a shopping cart using React as the framework. Utiliz
 
 ## License
 
-This project is licensed under MIT
+This project is licensed under MIT.
