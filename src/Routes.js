@@ -119,22 +119,22 @@ const Routes = () => {
     <BrowserRouter>
       <Header cartNum={cartNum} />
       <Switch>
-        <Route exact path='/' component={App} />
+        <Route exact path='/shopping-cart' component={App} />
         <Route
           exact
-          path='/product/:id'
+          path='/shopping-cart/product/:id'
           render={props => (
             <Product {...props} addToCartHandler={addToCartHandler} />
           )}
         />
         <Route
           exact
-          path='/products'
+          path='/shopping-cart/products'
           render={props => <Products {...props} productArr={products} />}
         />
         <Route
           exact
-          path='/cart'
+          path='/shopping-cart/cart'
           render={props => (
             <Cart
               {...props}
