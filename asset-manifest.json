@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/shopping-cart/static/css/main.ac4e81c7.chunk.css",
+    "main.css": "/shopping-cart/static/css/main.61ff7e15.chunk.css",
     "main.js": "/shopping-cart/static/js/main.12ac2020.chunk.js",
     "main.js.map": "/shopping-cart/static/js/main.12ac2020.chunk.js.map",
     "runtime-main.js": "/shopping-cart/static/js/runtime-main.b6a2e420.js",
@@ -8,14 +8,14 @@
     "static/js/2.862a99ea.chunk.js": "/shopping-cart/static/js/2.862a99ea.chunk.js",
     "static/js/2.862a99ea.chunk.js.map": "/shopping-cart/static/js/2.862a99ea.chunk.js.map",
     "index.html": "/shopping-cart/index.html",
-    "static/css/main.ac4e81c7.chunk.css.map": "/shopping-cart/static/css/main.ac4e81c7.chunk.css.map",
+    "static/css/main.61ff7e15.chunk.css.map": "/shopping-cart/static/css/main.61ff7e15.chunk.css.map",
     "static/js/2.862a99ea.chunk.js.LICENSE.txt": "/shopping-cart/static/js/2.862a99ea.chunk.js.LICENSE.txt",
     "static/media/App.css": "/shopping-cart/static/media/hero.26d7aae6.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.b6a2e420.js",
     "static/js/2.862a99ea.chunk.js",
-    "static/css/main.ac4e81c7.chunk.css",
+    "static/css/main.61ff7e15.chunk.css",
     "static/js/main.12ac2020.chunk.js"
   ]
 }
